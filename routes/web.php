@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,15 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    echo 'Selamat datang';
-});
-
-Route::get('/about', function () {
-    echo '2141720134 / Argya Wicaksana';
-});
-
-Route::get('/articles/{id}', function ($id) {
-    echo "Halaman artikel dengan ID $id";
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index']);
+Route::get('/articles/{id}', [ArticleController::class, 'index']);
