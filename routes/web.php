@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
@@ -21,27 +22,25 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', [HomeController::class, 'index']);
 
-// Category
-Route::prefix('category')->group(function() {
-    Route::redirect('/marble-edu-games', 'https://www.educastudio.com/category/marbel-edu-games');
-    Route::redirect('/marbel-and-friends-kids-games ', 'https://www.educastudio.com/category/marbel-and-friends-kids-games');
-    Route::redirect('/riri-story-books', 'https://www.educastudio.com/category/riri-story-books');
-    Route::redirect('/kolak-kids-songs', 'https://www.educastudio.com/category/kolak-kids-songs ');
+// products
+Route::prefix('product')->group(function() {
+    Route::get('/main', [ProductsController::class, 'index']);
 });
 
 // News
-Route::get('/news', [NewsController::class, 'index']);
+// Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/{slug}', [NewsController::class, 'show']);
 
 // Program
 Route::prefix('program')->group(function() {
-    Route::redirect('/karir', 'https://www.educastudio.com/program/karir');
-    Route::redirect('/magang', 'https://www.educastudio.com/program/magang');
-    Route::redirect('/kunjungan-industri', 'https://www.educastudio.com/program/kunjungan-industri');
+    Route::get('/main', [ProgramController::class, 'index']);
 });
 
 // About
-Route::redirect('/about-us', 'https://www.educastudio.com/about-us');
+Route::get('/about-us', [AboutController::class, 'index']);
 
-//Contact
+// Contact
 Route::resource('/contact-us', ContactController::class)->only(['index']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

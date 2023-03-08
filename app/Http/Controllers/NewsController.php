@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index()
-    {
-        return redirect()->to('https://www.educastudio.com/news');
-    }
+    // public function index()
+    // {
+    //     return view('news');
+    // }
 
     public function show($slug)
     {
-        return redirect()->to("https://www.educastudio.com/news/$slug");
+        return view('news', ['data'=> $slug]);
     }
 }
