@@ -13,3 +13,9 @@
         <li>Class       : TI-2E</li>
     </ul>
 @endsection
+
+@section('footer')
+    <p class="text-center">
+        2141720134 | <a class="text-body" href="https://github.com/argyaWicaksana">Argya Wicaksana</a>
+    </p>
+@endsection
