@@ -4,22 +4,14 @@
 
 @section('content_header')
     <h1>Dashboard</h1>
-@stop
+@endsection
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <h1>Hello, this is home</h1>
-        </div>
-    </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+    <p>Hi, Welcome {{ ':)' }}</p>
+@endsection
 
 @section('js')
     <script>
-        console.log('Hi!');
+        alert('Welcome :)')
     </script>
-@stop
+@endsection

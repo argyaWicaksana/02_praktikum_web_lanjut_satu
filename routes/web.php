@@ -41,6 +41,9 @@ Route::get('/about-us', [AboutController::class, 'index']);
 
 // Contact
 Route::resource('/contact-us', ContactController::class)->only(['index']);
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Profile
+Route::get('/profile/{id}', fn($id)=> view('profile', ['id' => $id]));
+
+// Experience
+Route::get('/experience', fn()=> view('experience'));
