@@ -8,6 +8,6 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return '2141720134 / Argya Wicaksana';
+        return view('about-us');
     }
 }
