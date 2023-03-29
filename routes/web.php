@@ -21,29 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
-
-// products
-Route::prefix('product')->group(function() {
-    Route::get('/main', [ProductsController::class, 'index']);
-});
-
-// News
-// Route::get('/news', [NewsController::class, 'index']);
-Route::get('/news/{slug}', [NewsController::class, 'show']);
-
-// Program
-Route::prefix('program')->group(function() {
-    Route::get('/main', [ProgramController::class, 'index']);
-});
-
-// About
-Route::get('/about-us', [AboutController::class, 'index']);
-
-// Contact
-Route::resource('/contact-us', ContactController::class)->only(['index']);
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 // Profile
-Route::get('/profile/{id}', fn($id)=> view('profile', ['id' => $id]));
+Route::get('/profile', fn()=> view('profile', [ 'user' => auth()->user() ]));
 
 // Experience
-Route::get('/experience', fn()=> view('experience'));
+Route::get('/experience', fn()=> view('experience', [ 'user' => auth()->user() ]));
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

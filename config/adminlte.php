@@ -309,7 +309,7 @@ return [
         ],
         [
             'text' => 'Profile',
-            'url'  => '/profile/2141720134',
+            'url'  => '/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

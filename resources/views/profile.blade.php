@@ -1,4 +1,7 @@
 @extends('adminlte::page')
+@php
+    $department = $user->department->department_code
+@endphp
 
 @section('title', 'Profile')
 
@@ -8,14 +11,14 @@
 
 @section('content')
     <ul>
-        <li>Student ID  : {{ $id }}</li>
-        <li>Name        : Argya Wicaksana</li>
-        <li>Class       : TI-2E</li>
+        <li>Student ID  : {{ $user->student_id }}</li>
+        <li>Name        : {{ $user->name }}</li>
+        <li>Class       : {{ "$department-$user->class" }}</li>
     </ul>
 @endsection
 
 @section('footer')
     <p class="text-center">
-        2141720134 | <a class="text-body" href="https://github.com/argyaWicaksana">Argya Wicaksana</a>
+        {{ $user->student_id }} | <a class="text-body" href="https://github.com/argyaWicaksana">{{ $user->name }}</a>
     </p>
 @endsection

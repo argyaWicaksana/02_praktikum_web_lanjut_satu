@@ -12,7 +12,7 @@
 
 @section('footer')
     <p class="text-center">
-        2141720134 | <a class="text-body" href="https://github.com/argyaWicaksana">Argya Wicaksana</a>
+        {{ $user->student_id }} | <a class="text-body" href="https://github.com/argyaWicaksana">{{ $user->name }}</a>
     </p>
 @endsection
 

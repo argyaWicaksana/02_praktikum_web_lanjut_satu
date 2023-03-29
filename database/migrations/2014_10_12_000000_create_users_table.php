@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('student_id');
+            $table->string('class');
+            $table->foreignId('department_id')->constrained();
+            $table->text('college_exp');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
