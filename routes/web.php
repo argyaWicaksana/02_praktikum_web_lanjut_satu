@@ -20,10 +20,10 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/login', [DashboardController::class, 'login'])->name('login');
 
 // Profile
-Route::get('/profile', fn () => view('profile', ['user' => auth()->user()]));
+Route::get('/profile', [DashboardController::class, 'profile']);
 
 // Experience
-Route::get('/experience', fn () => view('experience', ['user' => auth()->user()]));
+Route::get('/experience', [DashboardController::class, 'experience']);
 
 // Classmate
 Route::get('/classmate', [DashboardController::class, 'classmate']);
@@ -32,5 +32,3 @@ Route::get('/classmate', [DashboardController::class, 'classmate']);
 Route::get('/subject', [DashboardController::class, 'subject']);
 
 Auth::routes();
-
-Route::get('/home', [DashboardController::class, 'index'])->name('home');

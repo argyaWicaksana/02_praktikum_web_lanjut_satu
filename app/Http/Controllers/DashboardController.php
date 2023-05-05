@@ -61,4 +61,18 @@ class DashboardController extends Controller
             'subjects' => $subjects
         ]);
     }
+
+    public function experience()
+    {
+        return view('experience', [
+            'user' => Auth::user()
+        ]);
+    }
+
+    public function profile()
+    {
+        return view('profile', [
+            'user' => Auth::user()
+        ]);
+    }
 }
