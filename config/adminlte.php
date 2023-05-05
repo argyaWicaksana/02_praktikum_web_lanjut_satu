@@ -317,6 +317,16 @@ return [
             'url'  => '/experience',
             'icon' => 'fas fa-fw fa-graduation-cap',
         ],
+        [
+            'text' => 'Classmates',
+            'url'  => '/classmate',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Subjects',
+            'url'  => '/subject',
+            'icon' => 'fas fa-fw fa-book',
+        ],
     ],
 
     /*

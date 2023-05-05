@@ -1,7 +1,4 @@
 @extends('adminlte::page')
-@php
-    $department = $user->department->department_code
-@endphp
 
 @section('title', 'Profile')
 
@@ -13,7 +10,7 @@
     <ul>
         <li>Student ID  : {{ $user->student_id }}</li>
         <li>Name        : {{ $user->name }}</li>
-        <li>Class       : {{ "$department-$user->class" }}</li>
+        <li>Class       : {{ $user->grade->name }}</li>
     </ul>
 @endsection
 

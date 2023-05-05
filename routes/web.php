@@ -1,11 +1,7 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\NewsController;
+use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,15 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/', [DashboardController::class, 'index']);
+Route::get('/login', [DashboardController::class, 'login'])->name('login');
 
 // Profile
-Route::get('/profile', fn()=> view('profile', [ 'user' => auth()->user() ]));
+Route::get('/profile', fn () => view('profile', ['user' => auth()->user()]));
 
 // Experience
-Route::get('/experience', fn()=> view('experience', [ 'user' => auth()->user() ]));
+Route::get('/experience', fn () => view('experience', ['user' => auth()->user()]));
+
+// Classmate
+Route::get('/classmate', [DashboardController::class, 'classmate']);
+
+// Subject
+Route::get('/subject', [DashboardController::class, 'subject']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [DashboardController::class, 'index'])->name('home');

@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('grade_subject', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->string('name');
-            $table->string('head');
-            $table->timestamps();
+            $table->foreignId('grade_id');
+            $table->foreignId('subject_id');
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        //
     }
 };
